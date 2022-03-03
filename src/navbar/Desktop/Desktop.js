@@ -13,10 +13,13 @@ const Desktop = ({ links }) => {
         rowGap: 6,
         width: "18rem",
         padding: 5,
+        position: "fixed",
+        top: "0",
         height: "100vh",
         bgcolor: "white",
         alignItems: "center",
       }}
+      component="nav"
     >
       <Link href="/">
         <Box

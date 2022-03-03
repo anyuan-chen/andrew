@@ -5,19 +5,32 @@ import Box from "@mui/material/Box";
 import ProTip from "../src/ProTip";
 import Link from "../src/Link";
 import Navbar from "../src/navbar/Navbar";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Index() {
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+
   return (
-    <Navbar></Navbar>
-    // <Container maxWidth="sm">
-    //   <Box sx={{ my: 4 }}>
-    //     <Typography variant="h1" component="h1" gutterBottom>
-    //       Next.js example
-    //     </Typography>
-    //     <Link href="/about" color="secondary">
-    //       Go to the about page
-    //     </Link>
-    //   </Box>
-    // </Container>
+    <Box sx={{ display: "flex", flexDirection: "row" }}>
+      <Navbar></Navbar>
+      <Box
+        sx={{
+          marginLeft: matches ? "20rem" : "0",
+          marginTop: matches ? "0" : "5rem",
+        }}
+      >
+        <Box>
+          <Typography>About Me</Typography>
+          <Typography>I’m a software engineer based in Toronto.</Typography>
+          <Typography>
+            I design and build refreshing web experiences, packed to the punch
+            with delightful interactions.
+          </Typography>
+        </Box>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
+      </Box>
+    </Box>
   );
 }
