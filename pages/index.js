@@ -6,31 +6,37 @@ import ProTip from "../src/ProTip";
 import Link from "../src/Link";
 import Navbar from "../src/navbar/Navbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import BaseLayout from "../src/shared/BaseLayout";
+import Content from "../src/shared/Content";
 
 export default function Index() {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
-      <Navbar></Navbar>
+    <BaseLayout>
       <Box
         sx={{
-          marginLeft: matches ? "20rem" : "0",
+          marginLeft: matches ? "18rem" : "0",
           marginTop: matches ? "0" : "5rem",
+          width: "100%",
+          rowGap: 1,
+          bgcolor: "primary.lighter",
         }}
       >
-        <Box>
-          <Typography>About Me</Typography>
-          <Typography>I’m a software engineer based in Toronto.</Typography>
-          <Typography>
+        <Content sx={{ rowGap: 5 }}>
+          <Typography variant="h2">About Me</Typography>
+          <Typography variant="h1">
+            I’m a software engineer based in Toronto.
+          </Typography>
+          <Typography variant="h3">
             I design and build refreshing web experiences, packed to the punch
             with delightful interactions.
           </Typography>
-        </Box>
+        </Content>
         <Box></Box>
         <Box></Box>
         <Box></Box>
       </Box>
-    </Box>
+    </BaseLayout>
   );
 }

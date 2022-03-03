@@ -18,11 +18,20 @@ let theme = createTheme({
       fontFamily: "Platform",
       fontWeight: 400,
       color: "white",
+      fontSize: "4rem",
     },
     h2: {
       fontFamily: "Platform",
       fontWeight: 500,
-      color: "secondary.main",
+      color: "#9AA3A7",
+      fontSize: "3rem",
+    },
+    h3: {
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      fontSize: "1.2rem",
+      color: "white",
     },
     nav: {
       fontFamily: "Platform",
@@ -54,5 +63,8 @@ let theme = createTheme({
   },
 });
 
-theme = responsiveFontSizes(theme);
+const options = {
+  factor: 3,
+};
+theme = responsiveFontSizes(theme, options);
 export default theme;
