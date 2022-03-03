@@ -5,7 +5,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 const links = [
-  { href: "/home", value: "Home" },
+  { href: "/", value: "Home" },
   { href: "/work", value: "Work" },
   { href: "/writing", value: "Writing" },
   { href: "/about", value: "About" },

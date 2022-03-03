@@ -18,7 +18,7 @@ const Desktop = ({ links }) => {
         alignItems: "center",
       }}
     >
-      <Link href="/home">
+      <Link href="/">
         <Box
           component={motion.a}
           sx={{ display: "block" }}
