@@ -1,29 +1,23 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import ProTip from "../src/ProTip";
-import Link from "../src/Link";
-import Navbar from "../src/navbar/Navbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import BaseLayout from "../src/shared/BaseLayout";
 import Content from "../src/shared/Content";
+import Container from "../src/shared/Container";
 
 export default function Index() {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
     <BaseLayout>
-      <Box
+      <Container
         sx={{
-          marginLeft: matches ? "18rem" : "0",
-          marginTop: matches ? "0" : "5rem",
-          width: "100%",
-          rowGap: 1,
-          bgcolor: "primary.lighter",
+          display: matches ? "grid" : "flex",
+          gridTemplate: "1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr",
+          gridGap: matches ? 8 : 4,
         }}
       >
-        <Content sx={{ rowGap: 5 }}>
+        <Content sx={{ rowGap: 5, gridRow: "1/3", gridColumn: "1/5" }}>
           <Typography variant="h2">About Me</Typography>
           <Typography variant="h1">
             I’m a software engineer based in Toronto.
@@ -33,10 +27,16 @@ export default function Index() {
             with delightful interactions.
           </Typography>
         </Content>
-        <Box></Box>
-        <Box></Box>
-        <Box></Box>
-      </Box>
+        <Content sx={{ rowGap: 5, gridRow: "3/5", gridColumn: "1/3" }}>
+          <Typography variant="h2">About Me</Typography>
+        </Content>
+        <Content
+          sx={{ rowGap: 5, gridRow: "3/4", gridColumn: "3/5" }}
+        ></Content>
+        <Content
+          sx={{ rowGap: 5, gridRow: "4/5", gridColumn: "3/5" }}
+        ></Content>
+      </Container>
     </BaseLayout>
   );
 }
