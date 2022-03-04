@@ -10,17 +10,17 @@ const AnimatedLink = ({ href, value }) => {
       underline="none"
       sx={{
         my: 5,
-        textDecorationColor: "white",
       }}
     >
       <Typography
-        component={motion.a}
+        component={motion.div}
         sx={{
           textDecoration: "underline",
-          textDecorationColor: "rgba(0,0,0,0)",
+          textDecorationColor: "rgba(255,255,255,0)",
+          color: "white",
         }}
         variant="nav"
-        whileHover={{ textDecorationColor: "rgba(0,0,0,1)" }}
+        whileHover={{ textDecorationColor: "rgba(255,255,255,1)" }}
       >
         {value}
       </Typography>
