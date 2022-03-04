@@ -6,26 +6,28 @@ const BaseLayout = ({ children }) => {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
   return (
-    <div className={styles.dividers}>
-      <div
-        style={{
-          zIndex: "1",
-          position: "fixed",
-          backgroundColor: "white",
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-        }}
-      ></div>
+    <div className={matches ? styles.dividers : ""}>
+      {matches && (
+        <div
+          style={{
+            zIndex: "1",
+            position: "fixed",
+            backgroundColor: "white",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+          }}
+        ></div>
+      )}
 
-      <Box sx={{px: 3}}>
+      <Box sx={{ px: matches ? 3 : 0 }}>
         <Navbar></Navbar>
         <div
           style={{
-            zIndex: "2",
+            zIndex: matches ? 2 : -1,
             display: "flex",
-            position: "relative",
+            position: matches ? "relative" : "static",
             flexDirection: "column",
           }}
         >

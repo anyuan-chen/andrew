@@ -19,6 +19,7 @@ const Mobile = ({ links }) => {
           width: "100vw",
           justifyContent: "space-between",
           position: "fixed",
+          zIndex: "1",
           top: 0,
         }}
       >

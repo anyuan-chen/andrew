@@ -16,11 +16,11 @@ const ListeningTo = ({
   });
   return (
     <Box sx={{ bgcolor: "#162932", display: "flex" }}>
-      <img src={imgSrc} style={{ objectFit: "cover" }}></img>
-      <Box sx={{ display: "flex", flexDirection: "column", padding: 5 }}>
-        <Typography variant="h1">
-          {processedName}
-        </Typography>
+      <img src={imgSrc} width="300px" style={{ objectFit: "cover" }}></img>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", padding: 5, rowGap: 5 }}
+      >
+        <Typography variant="h1">{processedName}</Typography>
         <Typography variant="h3">{artist}</Typography>
         <hr style={{ color: "#D8D8D8", width: "100%" }}></hr>
         <Typography variant="h3">{album}</Typography>
