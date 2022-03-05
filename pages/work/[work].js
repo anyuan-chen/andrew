@@ -8,7 +8,11 @@ import matter from "gray-matter";
 import Content from "../../src/shared/Content";
 import { useMemo } from "react";
 import { getMDXComponent } from "mdx-bundler/client";
+import { Typography } from "@mui/material";
 
+const Paragraph = ({children}) => {
+  return <Typography variant="h2">{children}</Typography>;
+};
 const Work = ({ code, frontmatter }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
@@ -16,12 +20,11 @@ const Work = ({ code, frontmatter }) => {
     <BaseLayout>
       <Container>
         <Content></Content>
-        <Component></Component>
+        <Component components={{ p: Paragraph }}></Component>
       </Container>
     </BaseLayout>
   );
 };
-
 
 export async function getStaticProps({ params: { work } }) {
   const file = path.join(process.cwd(), "mdx", "work", `${work}.mdx`);
