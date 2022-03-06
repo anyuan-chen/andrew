@@ -4,21 +4,22 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import BaseLayout from "../src/shared/BaseLayout";
 import Content from "../src/shared/Content";
 import Container from "../src/shared/Container";
+import Title from "../src/shared/Title";
 
 export default function Index() {
-  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("xl"));
 
   return (
     <BaseLayout>
       <Container
-        sx={{
+      sx={{
           display: matches ? "grid" : "flex",
           gridTemplate: "1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr",
           gridGap: matches ? 8 : 4,
         }}
       >
         <Content sx={{ rowGap: 5, gridRow: "1/3", gridColumn: "1/5" }}>
-          <Typography variant="h2">About Me</Typography>
+          <Title>About Me</Title>
           <Typography variant="h1">
             I’m a software engineer based in Toronto.
           </Typography>
@@ -28,7 +29,7 @@ export default function Index() {
           </Typography>
         </Content>
         <Content sx={{ rowGap: 5, gridRow: "3/5", gridColumn: "1/3" }}>
-          <Typography variant="h2">About Me</Typography>
+          
         </Content>
         <Content
           sx={{ rowGap: 5, gridRow: "3/4", gridColumn: "3/5" }}

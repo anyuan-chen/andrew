@@ -5,7 +5,6 @@ import { useState } from "react";
 import AnimatedLink from "../Mobile/AnimatedLink";
 import Aside from "./Aside";
 
-
 const Mobile = ({ links }) => {
   const [toggled, setToggled] = useState(false);
   return (
@@ -17,8 +16,14 @@ const Mobile = ({ links }) => {
           bgcolor: "primary.main",
           display: "flex",
           width: "100vw",
+          borderTop: "4px",
+          borderRight: "4px",
+          borderLeft: "4px",
+          borderColor: "secondary.lighter",
+          borderStyle: "solid",
           justifyContent: "space-between",
           position: "fixed",
+          zIndex: "1",
           top: 0,
         }}
       >
@@ -31,7 +36,9 @@ const Mobile = ({ links }) => {
           <img src="/icons/hamburger_menu.svg" height="100%"></img>
         </Button>
       </Box>
-      <AnimatePresence>{toggled && <Aside links={links}></Aside>}</AnimatePresence>
+      <AnimatePresence>
+        {toggled && <Aside links={links}></Aside>}
+      </AnimatePresence>
     </Box>
   );
 };

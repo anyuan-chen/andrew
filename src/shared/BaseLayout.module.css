@@ -1,0 +1,22 @@
+.dividers::before {
+  height: 0.5rem;
+  background-color: white;
+  background-position: 0 0;
+  top: 0;
+  z-index: 1000;
+  position: fixed;
+  content: "";
+  width: 100%;
+  left: 0;
+}
+.dividers::after {
+  height: 0.5rem;
+  background-color: white;
+  background-position: 0 100%;
+  bottom: 0;
+  z-index: 1000;
+  position: fixed;
+  content: "";
+  width: 100%;
+  left: 0;
+}

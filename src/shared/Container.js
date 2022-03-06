@@ -9,7 +9,7 @@ const Container = ({ children, sx }) => {
         marginLeft: matches ? "18rem" : "0",
         marginTop: matches ? "0" : "5rem",
         flexDirection: "column",
-        bgcolor: matches ? "primary.lighter" : "secondary.lighter",
+        bgcolor: matches ? "white" : "secondary.lighter",
         borderWidth: matches ? 0 : "4px",
         borderColor: matches ? "" : "secondary.lighter",
         borderStyle: matches ? "" : "solid",
