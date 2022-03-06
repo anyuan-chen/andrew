@@ -12,7 +12,6 @@ const Content = ({ children, sx }) => {
         flexDirection: "column",
         padding: matches ? 6 : 5,
         position: "relative",
-
         bgcolor: "primary.main",
         ...sx,
       }}

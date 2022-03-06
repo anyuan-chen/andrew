@@ -13,7 +13,6 @@ const Container = ({ children, sx }) => {
         borderWidth: matches ? 0 : "4px",
         borderColor: matches ? "" : "secondary.lighter",
         borderStyle: matches ? "" : "solid",
-        
         ...sx,
       }}
     >

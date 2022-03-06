@@ -3,13 +3,12 @@ import BaseLayout from "../../src/shared/BaseLayout";
 import Container from "../../src/shared/Container";
 import Content from "../../src/shared/Content";
 import Title from "../../src/shared/Title";
+import ArticlePreview from "../../src/writing/articlePreview";
 import matter from "gray-matter";
 import { Box } from "@mui/system";
 import fs from "fs";
 import path from "path";
 import { motion } from "framer-motion";
-import WorkPreview from "../../src/work/workPreview";
-
 
 // const frontmatter = {
 //   title: "title",
@@ -18,18 +17,23 @@ import WorkPreview from "../../src/work/workPreview";
 //   thumbnailSrc: "/",
 // };
 
-export default function Work({ frontmatter }) {
+export default function Writing({ frontmatter }) {
   return (
     <BaseLayout>
       <Container>
         <Content sx={{ display: "flex", flexDirection: "column", rowGap: 5 }}>
-          <Title>Work</Title>
+          <Title>Writing</Title>
           <Box
             component={motion.div}
             sx={{ display: "flex", flexDirection: "column", rowGap: 4 }}
           >
-            {frontmatter.map((fileInfo) => {
-              return <WorkPreview frontmatter={fileInfo}></WorkPreview>;
+            {frontmatter.map((fileInfo, index) => {
+              return (
+                <ArticlePreview
+                  frontmatter={fileInfo}
+                  key={index}
+                ></ArticlePreview>
+              );
             })}
           </Box>
         </Content>
@@ -39,18 +43,17 @@ export default function Work({ frontmatter }) {
 }
 
 export async function getStaticProps() {
-  const fileNames = fs.readdirSync(path.join("mdx", "work"));
+  const fileNames = fs.readdirSync(path.join("mdx", "writing"));
   const frontmatter = fileNames.map((file) => {
-    const buffer = fs.readFileSync(path.join("mdx", "work", file));
+    const buffer = fs.readFileSync(path.join("mdx", "writing", file));
     const {
-      data: { title, date, description, thumbnailSrc },
+      data: { title, date, description },
     } = matter(buffer);
     const href = file.substr(0, file.length - 4);
     return {
       title,
       date,
       description,
-      thumbnailSrc,
       href,
     };
   });

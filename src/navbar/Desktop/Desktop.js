@@ -5,7 +5,7 @@ import Link from "../../Link";
 import { useMediaQuery } from "@mui/material";
 
 const Desktop = ({ links }) => {
-  const matches = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
     <Box

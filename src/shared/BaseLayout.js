@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
 import styles from "./BaseLayout.module.css";
 const BaseLayout = ({ children }) => {
-  const matches = useMediaQuery((theme) => theme.breakpoints.up("xl"));
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   return (
     <div className={matches ? styles.dividers : ""}>
