@@ -9,7 +9,7 @@ import fs from "fs";
 import path from "path";
 import { motion } from "framer-motion";
 import WorkPreview from "../../src/work/workPreview";
-
+import Head from "next/head";
 
 // const frontmatter = {
 //   title: "title",
@@ -21,8 +21,18 @@ import WorkPreview from "../../src/work/workPreview";
 export default function Work({ frontmatter }) {
   return (
     <BaseLayout>
+      <Head>
+        <title>Work</title>
+      </Head>
       <Container>
-        <Content sx={{ display: "flex", flexDirection: "column", rowGap: 5 }}>
+        <Content
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            rowGap: 5,
+            minHeight: "100vh",
+          }}
+        >
           <Title>Work</Title>
           <Box
             component={motion.div}

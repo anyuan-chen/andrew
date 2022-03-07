@@ -169,3 +169,6 @@ video {
 html:lang(cn) {
   font-size: 8px;
 }
+a{
+  color: inherit;
+}

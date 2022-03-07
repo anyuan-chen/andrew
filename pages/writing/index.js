@@ -9,7 +9,7 @@ import { Box } from "@mui/system";
 import fs from "fs";
 import path from "path";
 import { motion } from "framer-motion";
-
+import Head from "next/head";
 // const frontmatter = {
 //   title: "title",
 //   description: "description",
@@ -20,6 +20,9 @@ import { motion } from "framer-motion";
 export default function Writing({ frontmatter }) {
   return (
     <BaseLayout>
+      <Head>
+        <title>Writing</title>
+      </Head>
       <Container>
         <Content sx={{ display: "flex", flexDirection: "column", rowGap: 5 }}>
           <Title>Writing</Title>

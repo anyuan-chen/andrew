@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "../Link";
+import { useMediaQuery } from "@mui/material";
 
 const arrowMotion = {
   rest: {
@@ -12,9 +13,8 @@ const arrowMotion = {
     },
   },
   hover: {
-    transform: "translate(1rem, -16px)",
+    transform: "translate(8px, -8px)",
     opacity: 0.5,
-
     transition: {
       duration: 0.4,
       type: "tween",
@@ -23,17 +23,27 @@ const arrowMotion = {
   },
 };
 const textMotion = {
-  rest: {},
+  rest: {
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeIn",
+    },
+  },
   hover: {
     opacity: 0.5,
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeOut",
+    },
   },
 };
-const DesktopWorkPreview = ({
-  frontmatter: { title, date, description, thumbnailSrc, href },
-}) => {
+const SmallLink = ({ href, text }) => {
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   return (
     <AnimatePresence>
-      <Link href={`/work/${href}`}>
+      <Link href={href} target="blank">
         <Box
           component={motion.div}
           initial="rest"
@@ -46,28 +56,24 @@ const DesktopWorkPreview = ({
             width: "100%",
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h1" as={motion.h1} variants={textMotion}>
-              {title}
-            </Typography>
+          <Box
+            component={motion.div}
+            variants={textMotion}
+            sx={{ display: "flex", alignItems: "flex-end", columnGap: 4 }}
+          >
+            <Typography variant="h3">{text}</Typography>
             <Box sx={{}} component={motion.div} variants={arrowMotion}>
               <img
                 src="/icons/uparrow_white.svg"
-                style={{ height: "3rem", transform: "translate(2rem, -10px)" }}
+                style={{
+                  height: "1rem",
+                }}
               ></img>
             </Box>
           </Box>
-
-          <Typography
-            variant="h2"
-            sx={{ fontFamily: "Inter", fontWeight: "normal" }}
-          >
-            {date.substr(date.length - 4)}
-          </Typography>
         </Box>
       </Link>
     </AnimatePresence>
   );
 };
-
-export default DesktopWorkPreview;
+export default SmallLink;
