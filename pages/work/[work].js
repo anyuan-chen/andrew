@@ -1,6 +1,4 @@
 import { Box } from "@mui/system";
-import fs from "fs";
-import path from "path";
 import BaseLayout from "../../src/shared/BaseLayout";
 import Container from "../../src/shared/Container";
 import matter from "gray-matter";
@@ -25,9 +23,6 @@ const Work = ({ code, frontmatter }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <BaseLayout>
-      <Head>
-        <title>{frontmatter.title}</title>
-      </Head>
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
         <Content sx={{}}>
@@ -49,13 +44,10 @@ export async function getStaticProps({ params: { work } }) {
 }
 
 export async function getStaticPaths() {
-  const fileNames = fs.readdirSync(path.join(process.cwd(), "mdx", "work"));
+  const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }));
   return {
-    paths: fileNames.map((file) => {
-      const work = file.substr(0, file.length - 4);
-      return { params: { work: work } };
-    }),
-    fallback: true,
+    paths,
+    fallback: false,
   };
 }
 
