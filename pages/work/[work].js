@@ -9,7 +9,7 @@ import { Typography } from "@mui/material";
 import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
-import { getSinglePost } from "../../src/work/getWorkPosts";
+import { getSinglePost, getAllPosts } from "../../src/work/getWorkPosts";
 
 const Paragraph = ({ children }) => {
   return (
@@ -44,7 +44,7 @@ export async function getStaticProps({ params: { work } }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPosts().map(({ slug }) => ({ params: { slug } }));
+  const paths = getAllPosts().map(({ work }) => ({ params: { work } }));
   return {
     paths,
     fallback: false,

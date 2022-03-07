@@ -52,25 +52,26 @@ const getCompiledMDX = async (content) => {
   }
 };
 
-export const getSinglePost = async (slug) => {
-  const source = getFileContent(`${slug}.mdx`);
+export const getSinglePost = async (work) => {
+  const source = getFileContent(`${work}.mdx`);
   const { code, frontmatter } = await getCompiledMDX(source);
   return {
     frontmatter,
     code,
   };
 };
+
 export const getAllPosts = () => {
   return fs
     .readdirSync(POSTS_PATH)
     .filter((path) => /\.mdx?$/.test(path))
     .map((fileName) => {
       const source = getFileContent(fileName);
-      const slug = fileName.substr(0, file.length - 4);
+      const work = fileName.substr(0, fileName.length - 4);
       const { data } = matter(source);
       return {
         frontmatter: data,
-        slug: slug,
+        work: work,
       };
     });
 };
