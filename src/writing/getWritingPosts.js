@@ -9,7 +9,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 
 export const ROOT = process.cwd();
-export const POSTS_PATH = path.join(process.cwd(), "mdx/work");
+export const POSTS_PATH = path.join(process.cwd(), "mdx/writing");
 
 export const getFileContent = (filename) => {
   return fs.readFileSync(path.join(POSTS_PATH, filename), "utf8");
@@ -46,8 +46,7 @@ const getCompiledMDX = async (content) => {
         ];
         options.rehypePlugins = [
           ...(options.rehypePlugins ?? []),
-          rehypePrism,
-          rehypeKatex,
+          ...rehypePlugins,
         ];
 
         return options;
@@ -58,8 +57,8 @@ const getCompiledMDX = async (content) => {
   }
 };
 
-export const getSinglePost = async (work) => {
-  const source = getFileContent(`${work}.mdx`);
+export const getSinglePost = async (writing) => {
+  const source = getFileContent(`${writing}.mdx`);
   const { code, frontmatter } = await getCompiledMDX(source);
   return {
     frontmatter,
@@ -73,11 +72,11 @@ export const getAllPosts = () => {
     .filter((path) => /\.mdx?$/.test(path))
     .map((fileName) => {
       const source = getFileContent(fileName);
-      const work = fileName.substr(0, fileName.length - 4);
+      const writing = fileName.substr(0, fileName.length - 4);
       const { data } = matter(source);
       return {
         frontmatter: data,
-        work: work,
+        writing: writing,
       };
     });
 };

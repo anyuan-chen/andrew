@@ -4,7 +4,7 @@ import { createStitches } from "@stitches/react";
 export const { styled } = createStitches({
   theme: {
     fonts: {
-      mono: "Fira Mono, monospace",
+      mono: "Courier, monospace",
     },
     fontSizes: {
       1: "12px",
