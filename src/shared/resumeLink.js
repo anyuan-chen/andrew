@@ -9,7 +9,7 @@ const underlineMotion = {
   },
   hover: {
     textDecorationColor: "white",
-    opacity: 0.5
+    opacity: 0.5,
   },
 };
 const ResumeLink = ({ href, text }) => {

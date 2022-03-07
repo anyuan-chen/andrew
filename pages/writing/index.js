@@ -24,7 +24,14 @@ export default function Writing({ frontmatter }) {
         <title>Writing</title>
       </Head>
       <Container>
-        <Content sx={{ display: "flex", flexDirection: "column", rowGap: 5 }}>
+        <Content
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            rowGap: 5,
+            minHeight: "100vh",
+          }}
+        >
           <Title>Writing</Title>
           <Box
             component={motion.div}

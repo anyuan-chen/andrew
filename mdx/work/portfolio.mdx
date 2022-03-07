@@ -1,7 +1,7 @@
 ---
 title: Portfolio
-date: "August 4, 2021"
-description: Learn how to create and use functions
+date: "March 4, 2021"
+description: Combining design and
 thumbnailSrc: "/images/perdiem.png"
 role: "Developer"
 team: ["Andrew Chen", "Daniel Chen", "Aileen Luo"]
@@ -12,4 +12,53 @@ links:
     href: "https://perdiem.tech"
 ---
 
-hi
+# Project Overview
+
+When I started creating my portfolio, I had three main goals in mind:
+
+```cpp
+int solve(vector<int>& nums, int k) {
+    int ans = 0;
+    const int MOD = 1e9+7;
+    int total = 0;
+    for (int i : nums) {
+        total =(total + (ans + i))%MOD;
+    }
+    for (int bit = 0; bit < 31 && k > 0; bit++){
+        for (int i = 0; i < nums.size() && k > 0; i++){
+            if ((nums[i] & (1 << bit)) == 0){
+                k-- ;
+                total = (total + (1 << bit))%MOD;
+            }
+        }
+    }
+    return total%MOD;
+}
+```
+
+The other way in which we can do this is through the usage of a frequency array. For each index of bit, I record the number of zeroes available to be filled. In the second loop, all I do is greedily take the lowest indexes available.
+
+```cpp
+int solve(vector<int>& nums, int k) {
+    int answer = 0;
+    vector<int> zeroes (32, 0);
+    const int MOD = 1e9+7;
+    for (int i : nums){
+        answer = (answer + i)%MOD;
+        for (int j = 0; j < 32; j++){
+            if ((i & (1 << j)) != 0){
+                zeroes[j] += 0;
+            }
+            else{
+                zeroes[j] += 1;
+            }
+        }
+    }
+    for (int i = 0; i < 32 && k > 0; i++){
+        int minimum = min(zeroes[i], k);
+        answer = (answer + minimum * (1 << i))%MOD;
+        k -= minimum;
+    }
+    return answer;
+}
+```

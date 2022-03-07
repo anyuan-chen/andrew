@@ -6,13 +6,13 @@ import Content from "../../src/shared/Content";
 import { useMemo } from "react";
 import { getMDXComponent } from "mdx-bundler/client";
 import { Typography } from "@mui/material";
-import ProjectHeader from "../../src/work/projectHeader";
+import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
 import components from "../../src/shared/DesignSystem";
-import { getSinglePost, getAllPosts } from "../../src/work/getWorkPosts";
+import { getSinglePost, getAllPosts } from "../../src/writing/getWritingPosts";
 
-const Work = ({ code, frontmatter }) => {
+const Writing = ({ code, frontmatter }) => {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
@@ -20,7 +20,7 @@ const Work = ({ code, frontmatter }) => {
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
         <Content sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ width: "60%" }}>
+          <Box sx={{ width: matches ? "60%" : "100%" }}>
             <Component components={components}></Component>
           </Box>
         </Content>
@@ -29,8 +29,8 @@ const Work = ({ code, frontmatter }) => {
   );
 };
 
-export async function getStaticProps({ params: { work } }) {
-  const { code, frontmatter } = await getSinglePost(work);
+export async function getStaticProps({ params: { writing } }) {
+  const { code, frontmatter } = await getSinglePost(writing);
   return {
     props: {
       code,
@@ -40,11 +40,11 @@ export async function getStaticProps({ params: { work } }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPosts().map(({ work }) => ({ params: { work } }));
+  const paths = getAllPosts().map(({ writing }) => ({ params: { writing } }));
   return {
     paths,
     fallback: false,
   };
 }
 
-export default Work;
+export default Writing;

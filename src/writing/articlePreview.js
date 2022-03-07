@@ -6,8 +6,8 @@ const ArticlePreview = ({
   frontmatter: { title, description, date, thumbnailSrc, href },
 }) => {
   return (
-    <Link href={`/work/${href}`}>
-      <Box sx={{ display: "flex", flexDirection: "column" , rowGap: 4 }}>
+    <Link href={`/writing/${href}`}>
+      <Box sx={{ display: "flex", flexDirection: "column", rowGap: 4 }}>
         <Typography variant="h1">{title}</Typography>
         <Typography variant="h3">{description}</Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -21,7 +21,7 @@ const ArticlePreview = ({
             {date}
           </Typography>
         </Box>
-        <hr style={{color: "white", width: "100%", opacity: 0.4}}></hr>
+        <hr style={{ color: "white", width: "100%", opacity: 0.4 }}></hr>
       </Box>
     </Link>
   );
