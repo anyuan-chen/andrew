@@ -10,7 +10,7 @@ import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
 import components from "../../src/shared/DesignSystem";
-import { getSinglePost, getAllPosts } from "../../src/Writing/getWritingPosts";
+import { getSinglePost, getAllPosts } from "../../src/writing/getWritingPosts";
 
 const Writing = ({ code, frontmatter }) => {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
