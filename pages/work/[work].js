@@ -53,7 +53,7 @@ export async function getStaticProps({ params: { work } }) {
 }
 
 export async function getStaticPaths() {
-  const fileNames = fs.readdirSync(path.join("mdx", "work"));
+  const fileNames = fs.readdirSync(path.join(process.cwd(), "mdx", "work"));
   return {
     paths: fileNames.map((file) => {
       const work = file.substr(0, file.length - 4);
