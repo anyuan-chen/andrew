@@ -96,8 +96,17 @@ export async function getStaticProps() {
     const buffer = fs.readFileSync(
       path.join(process.cwd(), "mdx", "work", file)
     );
-    const { data } = matter(buffer);
-    return data;
+    const {
+      data: { title, date, description, thumbnailSrc },
+    } = matter(buffer);
+    const href = file.substr(0, file.length - 4);
+    return {
+      title,
+      date,
+      description,
+      thumbnailSrc,
+      href,
+    };
   });
   return {
     props: {

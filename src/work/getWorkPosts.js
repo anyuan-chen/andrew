@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { bundleMDX } from "mdx-bundler";
+import rehypeHighlightCode from "../shared/rehype-highlight-code";
+import rehypeMetaAttribute from "../shared/rehype-meta-attribute";
 
 export const ROOT = process.cwd();
 export const POSTS_PATH = path.join(process.cwd(), "mdx/work");
@@ -29,7 +31,7 @@ const getCompiledMDX = async (content) => {
   }
   // Add your remark and rehype plugins here
   const remarkPlugins = [];
-  const rehypePlugins = [];
+  const rehypePlugins = [rehypeMetaAttribute, rehypeHighlightCode];
 
   try {
     return await bundleMDX({

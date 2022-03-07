@@ -53,7 +53,8 @@ let theme = createTheme({
     p: {
       fontFamily: "Inter",
       fontStyle: "normal",
-      fontSize: "1rem",
+      fontSize: "1.2rem",
+      lineHeight: "1.6rem",
       color: "rgba(0,0,0,0.8)",
     },
     nav: {

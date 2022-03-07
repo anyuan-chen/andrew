@@ -10,6 +10,7 @@ import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
 import { getSinglePost, getAllPosts } from "../../src/work/getWorkPosts";
+import DesignSystem from "../../src/shared/TextStyles";
 
 const Paragraph = ({ children }) => {
   return (
@@ -18,6 +19,9 @@ const Paragraph = ({ children }) => {
     </Typography>
   );
 };
+const Heading = ({ children }) => {
+  return <Typography variant="h1">{children}</Typography>;
+};
 const Work = ({ code, frontmatter }) => {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const Component = useMemo(() => getMDXComponent(code), [code]);
@@ -25,8 +29,10 @@ const Work = ({ code, frontmatter }) => {
     <BaseLayout>
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
-        <Content sx={{}}>
-          <Component components={{ p: Paragraph }}></Component>
+        <Content sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ width: "60%" }}>
+            <Component components={{ DesignSystem }}></Component>
+          </Box>
         </Content>
       </Container>
     </BaseLayout>
