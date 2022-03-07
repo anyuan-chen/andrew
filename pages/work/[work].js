@@ -1,7 +1,4 @@
 import { Box } from "@mui/system";
-import fs from "fs";
-import { bundleMDX } from "mdx-bundler";
-import path from "path";
 import BaseLayout from "../../src/shared/BaseLayout";
 import Container from "../../src/shared/Container";
 import matter from "gray-matter";
@@ -12,6 +9,7 @@ import { Typography } from "@mui/material";
 import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
 import Head from "next/head";
+import { getSinglePost, getAllPosts } from "../../src/work/getWorkPosts";
 
 const Paragraph = ({ children }) => {
   return (
@@ -25,9 +23,6 @@ const Work = ({ code, frontmatter }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <BaseLayout>
-      <Head>
-        <title>{frontmatter.title}</title>
-      </Head>
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
         <Content sx={{}}>
@@ -39,11 +34,7 @@ const Work = ({ code, frontmatter }) => {
 };
 
 export async function getStaticProps({ params: { work } }) {
-  const file = path.join(process.cwd(), "mdx", "work", `${work}.mdx`);
-  const { code, frontmatter } = await bundleMDX({
-    file: file,
-    cwd: path.join(process.cwd(), "mdx", "work"),
-  });
+  const { code, frontmatter } = await getSinglePost(work);
   return {
     props: {
       code,
@@ -53,13 +44,10 @@ export async function getStaticProps({ params: { work } }) {
 }
 
 export async function getStaticPaths() {
-  const fileNames = fs.readdirSync(path.join("mdx", "work"));
+  const paths = getAllPosts().map(({ work }) => ({ params: { work } }));
   return {
-    paths: fileNames.map((file) => {
-      const work = file.substr(0, file.length - 4);
-      return { params: { work: work } };
-    }),
-    fallback: true,
+    paths,
+    fallback: false,
   };
 }
 

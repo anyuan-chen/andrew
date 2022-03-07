@@ -49,9 +49,9 @@ export default function Work({ frontmatter }) {
 }
 
 export async function getStaticProps() {
-  const fileNames = fs.readdirSync(path.join("mdx", "work"));
+  const fileNames = fs.readdirSync(path.join(process.cwd(), "mdx", "work"));
   const frontmatter = fileNames.map((file) => {
-    const buffer = fs.readFileSync(path.join("mdx", "work", file));
+    const buffer = fs.readFileSync(path.join(process.cwd(), "mdx", "work", file));
     const {
       data: { title, date, description, thumbnailSrc },
     } = matter(buffer);
