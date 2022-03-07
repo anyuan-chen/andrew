@@ -39,10 +39,12 @@ const Work = ({ code, frontmatter }) => {
 };
 
 export async function getStaticProps({ params: { work } }) {
-  const file = path.join(process.cwd(), "mdx", "work", `${work}.mdx`);
+  const cwd = process.cwd();
+  console.log(cwd);
+  const file = path.join(cwd, "mdx", "work", `${work}.mdx`);
   const { code, frontmatter } = await bundleMDX({
     file: file,
-    cwd: path.join(process.cwd(), "mdx", "work"),
+    cwd: cwd,
   });
   return {
     props: {
