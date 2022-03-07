@@ -6,11 +6,19 @@ import Container from "../src/shared/Container";
 import { useMediaQuery } from "@mui/material";
 import Title from "../src/shared/Title";
 import ListeningTo from "../src/about/ListeningTo";
-
+import { Box } from "@mui/system";
+import ListItem from "../src/about/listItem";
+import SmallLink from "../src/shared/smallLink";
+import { motion } from "framer-motion";
+import FadeContainer from "../src/shared/fadeContainer";
+import Head from "next/head";
 export default function About({ songInfo }) {
   const matches = useMediaQuery((theme) => theme.breakpoints.up("xl"));
   return (
     <BaseLayout>
+      <Head>
+        <title>About</title>
+      </Head>
       <Container
         sx={{
           display: matches ? "grid" : "flex",
@@ -28,18 +36,62 @@ export default function About({ songInfo }) {
             2022.
           </Typography>
         </Content>
-        <Content sx={{ gridRow: "3/4", gridColumn: "1/5" }}>
+        <Content sx={{ gridRow: "3/4", gridColumn: "1/5", rowGap: 5 }}>
           <Title>What I'm Listening To</Title>
           <ListeningTo songInfo={songInfo}></ListeningTo>
         </Content>
-        <Content sx={{ gridRow: "2/3", gridColumn: "1/3" }}>
+        <Content sx={{ gridRow: "2/3", gridColumn: "1/3", rowGap: 5 }}>
           <Title>What I'm Doing</Title>
+          <Box sx={{ display: "flex", flexDirection: "column", rowGap: 5 }}>
+            <ListItem
+              index="1"
+              text="Collecting snacks"
+              highlight=""
+            ></ListItem>
+            <ListItem
+              index="2"
+              text="Listening to ballads"
+              highlight=""
+            ></ListItem>
+            <ListItem
+              index="2"
+              text="Cheering on Team WE"
+              highlight="Team WE"
+              href="https://lol.fandom.com/wiki/Team_WE"
+            ></ListItem>
+            <ListItem
+              index="3"
+              text="Going on long morning walks"
+              highlight=""
+            ></ListItem>
+          </Box>
         </Content>
-        <Content sx={{ gridRow: "2/3", gridColumn: "3/5" }}>
+        <Content sx={{ gridRow: "2/3", gridColumn: "3/5", rowGap: 5 }}>
           <Title>Some Links</Title>
+          <FadeContainer></FadeContainer>
         </Content>
-        <Content sx={{ gridRow: "4/5", gridColumn: "1/5" }}>
+        <Content sx={{ gridRow: "4/5", gridColumn: "1/5", rowGap: 5 }}>
           <Title>Credits</Title>
+          <Typography variant="h3">
+            This site was built with Next.js, @mui-system, and Styled
+            Components.
+          </Typography>
+          <Typography variant="h3">
+            Protyping was done in Figma, with animations added in Framer Motion.
+          </Typography>
+          <Typography variant="h3">
+            Blog and project articles were written in MDX and transpiled using
+            mdx-bundler.
+          </Typography>
+          <Typography variant="h3">
+            Listening activity was tracked with the Last.fm API.
+          </Typography>
+          <Typography variant="h3">
+            Special thanks to Aileen Luo for design guidance.
+          </Typography>
+          <Typography variant="h5" sx={{ pt: 2 }}>
+            Copyright © 2020, Andrew Chen.
+          </Typography>
         </Content>
       </Container>
     </BaseLayout>

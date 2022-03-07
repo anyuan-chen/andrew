@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "../Link";
+import { useMediaQuery } from "@mui/material";
 
 const arrowMotion = {
   rest: {
@@ -14,7 +15,6 @@ const arrowMotion = {
   hover: {
     transform: "translate(1rem, -16px)",
     opacity: 0.5,
-
     transition: {
       duration: 0.4,
       type: "tween",
@@ -23,14 +23,26 @@ const arrowMotion = {
   },
 };
 const textMotion = {
-  rest: {},
+  rest: {
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeIn",
+    },
+  },
   hover: {
     opacity: 0.5,
+    transition: {
+      duration: 0.4,
+      type: "tween",
+      ease: "easeOut",
+    },
   },
 };
-const DesktopWorkPreview = ({
+const SmallWorkPreview = ({
   frontmatter: { title, date, description, thumbnailSrc, href },
 }) => {
+  const matches = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   return (
     <AnimatePresence>
       <Link href={`/work/${href}`}>
@@ -53,21 +65,19 @@ const DesktopWorkPreview = ({
             <Box sx={{}} component={motion.div} variants={arrowMotion}>
               <img
                 src="/icons/uparrow_white.svg"
-                style={{ height: "3rem", transform: "translate(2rem, -10px)" }}
+                style={{
+                  height: matches ? "3rem" : "1rem",
+                  transform: `translate(${matches ? "2rem" : "1rem"}, ${
+                    matches ? "-10px" : "-5px"
+                  })`,
+                }}
               ></img>
             </Box>
           </Box>
-
-          <Typography
-            variant="h2"
-            sx={{ fontFamily: "Inter", fontWeight: "normal" }}
-          >
-            {date.substr(date.length - 4)}
-          </Typography>
         </Box>
       </Link>
     </AnimatePresence>
   );
 };
 
-export default DesktopWorkPreview;
+export default SmallWorkPreview;

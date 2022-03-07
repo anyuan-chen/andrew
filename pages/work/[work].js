@@ -11,6 +11,7 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { Typography } from "@mui/material";
 import ProjectHeader from "../../src/writing/projectHeader";
 import { useMediaQuery } from "@mui/material";
+import Head from "next/head";
 
 const Paragraph = ({ children }) => {
   return (
@@ -24,6 +25,9 @@ const Work = ({ code, frontmatter }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <BaseLayout>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
         <Content sx={{}}>
