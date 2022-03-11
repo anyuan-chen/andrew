@@ -17,6 +17,9 @@ Firstly, we can loop through the rightmost-bit for ever number, checking if they
 are zero. If they are, and we still need to fill more bits, we add $2^n$ to the total
 where $n$ is the amount of bits the current bit is away from the rightmost bit.
 
+<br />
+<br />
+
 ```cpp
 int solve(vector<int>& nums, int k) {
     int ans = 0;
@@ -36,9 +39,11 @@ int solve(vector<int>& nums, int k) {
     return total%MOD;
 }
 ```
-
+<br />
+<br />
 The other way in which we can do this is through the usage of a frequency array. For each index of bit, I record the number of zeroes available to be filled. In the second loop, all I do is greedily take the lowest indexes available.
-
+<br />
+<br />
 ```cpp
 int solve(vector<int>& nums, int k) {
     int answer = 0;
@@ -63,5 +68,6 @@ int solve(vector<int>& nums, int k) {
     return answer;
 }
 ```
-
+<br />
+<br />
 Both of these implementations have a time complexity of $O(N)$, as they loop through the array of numbers once. They also share a space complexity of $O(1)$. There are no additional complex data structures created in the first solution, while the fixed size array in the second solution doesn't add to the space complexity. This was a fun bit manipulation problem to do, and I hope it was for you too!

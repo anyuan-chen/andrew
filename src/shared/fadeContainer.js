@@ -18,8 +18,8 @@ const FadeContainer = () => {
         href="https://github.com/anyuan-chen"
       ></SmallLink>
       <SmallLink
-        text="Codeforces"
-        href="https://codeforces.com/profile/anyuan -chen"
+        text="Devpost"
+        href="https://devpost.com/anyuan-chen"
       ></SmallLink>
       <SmallLink
         text="AtCoder"

@@ -50,19 +50,26 @@ let theme = createTheme({
       letterSpacing: "0.08em",
       color: "#9AA3A7",
     },
-    p: {
-      fontFamily: "Inter",
-      fontStyle: "normal",
-      fontSize: "1.2rem",
-      lineHeight: "1.6rem",
-      color: "rgba(0,0,0,0.8)",
-    },
+
     nav: {
       fontFamily: "Platform",
-      fontSstyle: "normal",
-      fontWweight: "normal",
+      fontStyle: "normal",
+      fontWeight: "normal",
       fontSize: "1.5rem",
       letterSpacing: "0.08em",
+    },
+    markdownh1: {
+      fontFamily: "Platform",
+      fontWeight: 500,
+      color: "white",
+      fontSize: "2rem",
+    },
+    caption: {
+      fontFamily: "Platform",
+      fontWeight: 400,
+      color: "white",
+      fontSize: "1rem",
+      opacity: "0.5",
     },
   },
   breakpoints: {
@@ -91,4 +98,13 @@ const options = {
   factor: 3,
 };
 theme = responsiveFontSizes(theme, options);
+
+theme.typography.p = {
+  fontFamily: "Inter",
+  fontStyle: "normal",
+  fontSize: "1.2rem",
+  lineHeight: "2.2rem",
+  color: "rgba(0,0,0,0.8)",
+};
+
 export default theme;

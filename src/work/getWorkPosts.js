@@ -7,6 +7,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
+import { remarkMdxImages } from "remark-mdx-images";
 
 export const ROOT = process.cwd();
 export const POSTS_PATH = path.join(process.cwd(), "mdx/work");
@@ -33,12 +34,20 @@ const getCompiledMDX = async (content) => {
     );
   }
   // Add your remark and rehype plugins here
-  const remarkPlugins = [remarkParse, remarkMath];
+  const remarkPlugins = [remarkParse, remarkMath, remarkMdxImages];
   const rehypePlugins = [rehypePrism, rehypeKatex, rehypeStringify];
 
   try {
     return await bundleMDX({
       source: content,
+      cwd: ROOT,
+      esbuildOptions: (options) => {
+        options.loader = {
+          ...options.loader,
+          ".png": "dataurl",
+        };
+        return options;
+      },
       xdmOptions(options) {
         options.remarkPlugins = [
           ...(options.remarkPlugins ?? []),

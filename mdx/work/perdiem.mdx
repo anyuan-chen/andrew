@@ -2,7 +2,8 @@
 title: Perdiem
 date: "August 4, 2021"
 description: Learn how to create and use functions
-thumbnailSrc: "/images/perdiem.png"
+thumbnailSrc: "/images/perdiem.gif"
+order: 1
 role: "Developer"
 team: ["Andrew Chen", "Daniel Chen", "Aileen Luo"]
 links:
@@ -10,6 +11,61 @@ links:
     href: "https://github.com/anyuan-chen/perdiem"
   - name: "Live Demo"
     href: "https://perdiem.tech"
+  - name: "Hackathon Demo Video"
+    href: "https://www.youtube.com/watch?v=6KqumhOrIE8"
 ---
 
-hi
+As an incoming university student, this is the first time I'll manage your finances alone or with little guidance from others. This new and unfamiliar experience can add a lot of stress to an already difficult transition, and often correlates to a lack of financial direction.This project aimed to encourage financial literacy through budgeting.
+
+# What it does
+
+Perdiem is a free resource that allows users to look at daily, monthly, or yearly purchases, offering a time capsule that captures your expenses with minimal annoyance. Spending categories categories are further broken down into places with the most money spent of each section, plus a quick weekly, monthly, and yearly breakdown. We also give the user the option to see how they performed with their budget over time, all tied together with an easily comprehendible rating. We have the option to see a more detailed breakdown in order to help them make more informed decisions on their budget.
+
+# How we built it
+
+We started on Figma and created our design system on a 16px grid, using components like daily messages and emojis. Our main font is Manrope, a grotesque font that conveys friendliness and readability. We reinforced the approachability of the design with a clean white layout, soft greys, and rounded edges. The website itself was built with Next.js, with Framer motion for animations, Chart.js for visualizations, and a mix of Tailwind and plain CSS for styling. Backend API requirements and static page generation were all handled by Next. Data was managed through a redux-like store we wrote and integrated with Localstorage. Deployment was done with Vercel and Domain.com.
+
+# Challenges we ran into
+
+In regards to design, data visualizations can often be non-friendly for those with visual disabilities. We chose 2
+colors that were easily distinguishable and tested for many different vision conditions, including Tritanopia and
+Deuteranopia. In the future, we would implement a screen reader, skip to main content, high contrast mode,
+customizable colors, and font size control. CSS implementation for complex SVG card layouts was particularly
+time-consuming and data fetching with Next.js was often confusing on which parts of the application were part
+of the client and which were the server. Dashboard layouts took a long time to build due to the intricacy of the
+CSS grids we were using, while the tooltip presented interesting issues with regard to managing the flow of elements
+in the DOM. However, one issues that affected us the most was how hard Tailwind made code to read.
+
+```js
+import React from "react";
+import { motion } from "framer-motion";
+import CalendarDay from "./calendarDay";
+import { useEffect } from "react";
+
+export default function Calendar({ dayInfo }) {
+  return (
+    <div className="rounded-xl h-full">
+      <div className="flex flex-col align-center h-full bg-white rounded-xl px-12">
+        <div className="grid grid-rows-5 grid-cols-7 gap-x-10 gap-y-5 pb-16">
+          {dayInfo.map((dayInfo, index) => {
+            return (
+              <CalendarDay
+                key={index}
+                color={dayInfo.color}
+                date={dayInfo.date}
+                spending={dayInfo.spending}
+              ></CalendarDay>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+<Caption> Tailwind inflates the size of React Components a lot</Caption>
+
+# What's next for Perdiem
+
+Our MVP lacks many features that we want to include, such as a search bar for expenses, more than one option for data visualization, exports, and a rewards saving program. We would also want to refine the design system and make UX changes were weren’t initially able to do. We think the design would look more polished if the number of components were standardized and reduced, as well as the colors and text styles. Due to time constraints, we couldn’t add user accounts, bank APIs, or 2FA. And of course, I wouldn’t be a designer if I didn’t ask for dark mode.

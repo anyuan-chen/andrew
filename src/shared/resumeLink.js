@@ -20,7 +20,7 @@ const ResumeLink = ({ href, text }) => {
       animate="rest"
       whileHover="hover"
     >
-      <Link href={href}>
+      <Link href={href} target="_blank">
         <Typography
           component={motion.h3}
           variants={underlineMotion}

@@ -44,11 +44,11 @@ export default function Index({ workFrontmatter }) {
           <Content sx={{ rowGap: 5, gridRow: "1/3", gridColumn: "1/5" }}>
             <Title>About Me</Title>
             <Typography variant="h1">
-              I’m a software engineer based in Toronto.
+              I architect and build enchanting web experiences.
             </Typography>
             <Typography variant="h3">
-              I design and build refreshing web experiences, packed to the punch
-              with delightful interactions.
+              I'm focused on delivering delightful interactions that give users
+              the little kick of joy.
             </Typography>
           </Content>
           <Content sx={{ rowGap: 5, gridRow: "3/5", gridColumn: "1/3" }}>
@@ -69,15 +69,15 @@ export default function Index({ workFrontmatter }) {
               </Box> */}
               <ResumeLink
                 text=".pdf"
-                href="/resume/andrewchenresume.pdf"
+                href="/resume/resumeandrewchen.pdf"
               ></ResumeLink>
               <ResumeLink
                 text=".docx"
-                href="/resume/andrewchenresume.docx"
+                href="/resume/resumeandrewchen.docx"
               ></ResumeLink>
               <ResumeLink
                 text=".tex"
-                href="/resume/andrewchenresume.tex"
+                href="/resume/resumeandrewchen.tex"
               ></ResumeLink>
             </Box>
           </Content>
@@ -92,12 +92,12 @@ export default function Index({ workFrontmatter }) {
 export async function getStaticProps() {
   let files = fs.readdirSync(path.join(process.cwd(), "mdx", "work"));
   files = files.slice(0, 3);
-  const workFrontmatter = files.map((file) => {
+  let workFrontmatter = files.map((file) => {
     const buffer = fs.readFileSync(
       path.join(process.cwd(), "mdx", "work", file)
     );
     const {
-      data: { title, date, description, thumbnailSrc },
+      data: { title, date, description, thumbnailSrc, order },
     } = matter(buffer);
     const href = file.substr(0, file.length - 4);
     return {
@@ -106,7 +106,12 @@ export async function getStaticProps() {
       description,
       thumbnailSrc,
       href,
+      order,
     };
+  });
+  console.log(workFrontmatter[0]);
+  workFrontmatter = workFrontmatter.sort((firstEl, secondEl) => {
+    return firstEl.order - secondEl.order;
   });
   return {
     props: {
