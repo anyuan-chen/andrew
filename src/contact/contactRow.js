@@ -47,7 +47,7 @@ const ContactRow = ({ href, title, displayHref }) => {
         <Typography variant="h3" sx={{ color: "secondary.main" }}>
           {title}
         </Typography>
-        <Link href={`/work/${href}`}>
+        <Link href={href} target="_blank">
           <Box
             component={motion.div}
             initial="rest"

@@ -25,7 +25,7 @@ const ProjectHeader = ({
         sx={{
           display: "flex",
           flexDirection: "column",
-          columnGap: matches ? 0 : "1rem",
+          rowGap: matches ? 0 : "1rem",
           justifyContent: "space-between",
         }}
       >

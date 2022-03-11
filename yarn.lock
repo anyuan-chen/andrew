@@ -3543,6 +3543,13 @@
     "js-yaml" "^4.0.0"
     "toml" "^3.0.0"
 
+"remark-mdx-images@^1.0.3":
+  "integrity" "sha512-+0/EV3SvO9PUaUGlPphM3n5cMsnQE57n2tMwZMiT6YlTKjVr/FuhOynt6WQGEes7enpL3WpbJuycfWGLrH6S5w=="
+  "resolved" "https://registry.npmjs.org/remark-mdx-images/-/remark-mdx-images-1.0.3.tgz"
+  "version" "1.0.3"
+  dependencies:
+    "unist-util-visit" "^2.0.0"
+
 "remark-parse@^10.0.0", "remark-parse@^10.0.1":
   "integrity" "sha512-1fUyHr2jLsVOkhbvPRBJ5zTKZZyD6yZzYaWCS6BPBdQ8vEMBCH+9zNCDA6tET/zHCi/jLqjCWtlJZUPk+DbnFw=="
   "resolved" "https://registry.npmjs.org/remark-parse/-/remark-parse-10.0.1.tgz"
@@ -4057,7 +4064,7 @@
     "@types/unist" "^2.0.0"
     "unist-util-is" "^5.0.0"
 
-"unist-util-visit@^2.0.3":
+"unist-util-visit@^2.0.0", "unist-util-visit@^2.0.3":
   "integrity" "sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q=="
   "resolved" "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-2.0.3.tgz"
   "version" "2.0.3"

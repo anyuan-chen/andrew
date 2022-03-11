@@ -22,7 +22,7 @@ const arrowVariants = {
 const ExternalLink = ({ href, name }) => {
   return (
     <motion.div initial="rest" whileHover="hover" animate="rest">
-      <Link href={href} sx={{ display: "flex", columnGap: 3 }}>
+      <Link href={href} target="_blank" sx={{ display: "flex", columnGap: 3 }}>
         <Typography sx={{ color: "white" }}>{name}</Typography>
         <motion.div variants={arrowVariants}>
           <img

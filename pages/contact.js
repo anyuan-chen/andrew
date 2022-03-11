@@ -37,7 +37,7 @@ export default function Contact() {
             <ContactRow
               title="Email"
               displayHref="andrew.chen.anyuan@gmail.com"
-              href="andrew.chen.anyuan@gmail.com"
+              href="mailto:andrew.chen.anyuan@gmail.com"
             ></ContactRow>
             <ContactRow
               title="LinkedIn"

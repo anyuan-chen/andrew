@@ -17,10 +17,20 @@ const Work = ({ code, frontmatter }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <BaseLayout>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
       <Container sx={{ display: "flex", rowGap: matches ? 2 : 1 }}>
         <ProjectHeader frontmatter={frontmatter}></ProjectHeader>
         <Content sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ width: "60%" }}>
+          <Box
+            sx={{
+              width: matches ? "60%" : "100%",
+              display: "flex",
+              flexDirection: "column",
+              rowGap: "2rem",
+            }}
+          >
             <Component components={components}></Component>
           </Box>
         </Content>
