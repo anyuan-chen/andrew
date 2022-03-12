@@ -1,9 +1,9 @@
 # Andrew Chen's Portfolio Website
 
-<a href=""><img src="https://img.shields.io/github/languages/code-size/anyuan-chen/andrewchen" /></a>
-<a href=""><img src="https://img.shields.io/tokei/lines/github/anyuan-chen/andrewchen" /></a>
-<a href=""><img src="https://img.shields.io/github/package-json/dependency-version/anyuan-chen/andrewchen/react" /></a>
-<a href=""><img src="https://img.shields.io/github/license/anyuan-chen/andrewchen" /></a>
+<a href=""><img src="https://img.shields.io/github/languages/code-size/anyuan-chen/andrew" /></a>
+<a href=""><img src="https://img.shields.io/tokei/lines/github/anyuan-chen/andrew" /></a>
+<a href=""><img src="https://img.shields.io/github/package-json/dependency-version/anyuan-chen/andrew/react" /></a>
+<a href=""><img src="https://img.shields.io/github/license/anyuan-chen/andrew" /></a>
 
 ## Getting Started
 
