@@ -47,8 +47,7 @@ export default function Index({ workFrontmatter }) {
               I architect and build enchanting web experiences.
             </Typography>
             <Typography variant="h3">
-              I'm focused on delivering delightful interactions that give users
-              the little kick of joy.
+              I'm focused on delivering interactions packed with delight.
             </Typography>
           </Content>
           <Content sx={{ rowGap: 5, gridRow: "3/5", gridColumn: "1/3" }}>

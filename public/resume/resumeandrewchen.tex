@@ -1,0 +1,207 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Andrew Chen} \\ \vspace{1pt}
+    \href{andrew.chen.anyuan@gmail.com}{\underline{andrew.chen.anyuan@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/achenn/}{\underline{linkedin.com/in/achenn}} $|$
+    \href{http://andrewchen.tech}{\underline{andrewchen.tech/}} $|$
+    \href{https://github.com/anyuan-chen}{\underline{github.com/anyuan-chen}}
+\end{center}
+
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Web Developer}{June 2021 -- current}
+      {Freelance}{Markham, ON}
+      \resumeItemListStart
+        \resumeItem{Designed and implemented a website for Bayview Model UN with Instagram API integration for advertising }
+        \resumeItem{Designed and implemented a website for the Public Schools Speech Organization with React that uses the Mailchimp API to automate email newsletters}
+        \resumeItem{Currently working with a UX designer to improve and implement user flows for Café Blanc with Google Analytics tracking}
+      \resumeItemListEnd
+      
+
+
+     \resumeSubheading
+      {STEAM Camp Teaching Assistant}{March 2019 -- April 2019}
+      {City of Markham}{Markham, ON}
+      \resumeItemListStart
+        \resumeItem{Actively managed the relationship between the camp executives and parents of camp attendees}
+        \resumeItem{Assisted children of varying mental capabilities develop skills in STEAM subjects}
+        \resumeItem{Created lesson templates, lesson plans, and outdoor activity plans for camp teachers and students}
+     \resumeItemListEnd
+     
+\resumeSubHeadingListEnd
+
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Perdiem} $|$ \emph{Next.js, React, Figma}}{February 2022 -- Present}
+          \resumeItemListStart
+            \resumeItem{Developed a data-driven financial dashboard with Next.js and Node}
+             \resumeItem{Improved data fetching and implemented lazy data fetching to reduce build times by 30\%}
+            \resumeItem{Allowed for users to control their own data through .csv exports}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Munkey} $|$ \emph{Next.js, React, Firebase, Figma}}{September 2021 -- present}
+          \resumeItemListStart
+            \resumeItem{Implemented and managed an authentication system with three levels of accounts}
+             \resumeItem{Implemented JWT web token authentication and authorization}
+            \resumeItem{Used Figma to create a design system of components for optimal user experience and accessiblity }
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\section{Awards}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+            {\textbf{Hackathon and Computer Science Awards} }{}
+            \resumeItemListStart
+            \resumeItem{Winner of the EdTech category at StormHacks 2022}
+            \resumeItem{Placed in the 10th percentile for the Canadian Computer Contest}
+            \resumeItem{Placed in the 25th percentile for the Euclid Mathematics Contest}
+            \resumeItem{Placed in the 15th percentile for the Canadian Open Mathematics Contest}
+            \resumeItemListEnd
+        \resumeProjectHeading
+            {\textbf{Business Awards} }{}
+            \resumeItemListStart
+            \resumeItem{Placed 2nd out of over 1500 teams worldwide in the DECA category of Project Management - Community Awareness Project for the creation of Project:AFK, an awareness non-profit organization}
+            \resumeItem{Provincial champion in the categories of Independent Business Plan and Independent business plan for the creation of full business reports and plans for local and international businesses}
+            \resumeItemListEnd
+        
+    \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: HTML/CSS/JavaScript, Python, C++, SQL (Postgres), Java, R} \\
+     \textbf{Frameworks}{: React, Node.js, Next.js} \\
+     \textbf{Developer Tools}{: Linux, Git, Github, Circle CI, Docker, Kubernetes, MS Office, Google Cloud Platform} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, framer-motion}
+    }}
+ \end{itemize}
+ 
+ %-----------EDUCATION-----------
+ 
+ \section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bayview Secondary School}{Richmond Hill, ON}
+      {IB Diploma and OSSD Diploma, | 99\% Ontario Top 6 average}{Sept. 2018 -- June 2022}
+      \resumeItemListStart
+        \resumeItem{Bayview Model UN Conference Director| Bayview Computer Club | Bayview DECA Trainer | Yearbook Writer }
+       \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+
+%-------------------------------------------
+\end{document}

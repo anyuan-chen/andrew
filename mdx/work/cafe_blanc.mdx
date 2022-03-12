@@ -1,36 +1,63 @@
 ---
 title: Cafe Blanc
-date: "August 4, 2021"
+date: "March 11, 2022"
 description: Learn how to create and use functions
 thumbnailSrc: "/images/cafe_blanc.png"
 role: "Designer and Developer"
 order: 3
 team: ["Andrew Chen", "Aileen Luo"]
 links:
-  - name: "Github"
-    href: "https://github.com/anyuan-chen/perdiem"
-  - name: "Live Demo"
-    href: "https://perdiem.tech"
+  - name: "Figma"
+    href: "https://www.figma.com/file/MzwPaYIzebRS70gcvQRtXw/Cafe?node-id=0%3A1"
 ---
 
-hi
+Though working with other developers may introduce small shifts in task management and the way Git is used,
+working with a designer shifts the paradigm.
 
-```cpp
-int solve(vector<int>& nums, int k) {
-    int ans = 0;
-    const int MOD = 1e9+7;
-    int total = 0;
-    for (int i : nums) {
-        total =(total + (ans + i))%MOD;
-    }
-    for (int bit = 0; bit < 31 && k > 0; bit++){
-        for (int i = 0; i < nums.size() && k > 0; i++){
-            if ((nums[i] & (1 << bit)) == 0){
-                k-- ;
-                total = (total + (1 << bit))%MOD;
-            }
-        }
-    }
-    return total%MOD;
-}
+When I was working as a solo developer/designer combo, I was able to design to the limitations of what I was able
+to do with CSS. I stuck to more conventional layouts that could easily be represented through flexbox and grid. This
+was my first project working with a designer, leading me to have to work around their needs and wants.
+
+# User Flows
+
+One of the first differences I noticed in the way that the designer and I thought was in how we broke down the user
+experience on a page. Like most developers, I developed components, and rearranged those components to
+form pages. On the other hand, the designer I worked with thought in terms of user flow: much more focus was placed
+on their interactions and eye movement across the page.
+
+Through this, I realized the limitations of my view: it was an abstraction useful only for development itself, and often
+bottlenecked my creative design. In this project, one of the places where this was the case was the landing page.
+
+<img src="/images/cafe_cta.png" />
+
+Looking at this layout, the right side seems fairly difficult to lay out using flexbox and grid. The overlay of various
+elements over each other makes the usage of negative margins necessary, and also causes complications with the accessbility
+of the website. I couldn’t just exclude these little overlays either, for they added the charm that made the website so
+nice to use.
+
+Building layouts like this forced to me to adapt CSS to business needs instead of finding comprimise that erred too hard on
+the side of the developer.
+
+# Representing Visual Space
+
+As a web developer, my first instinct when trying to space something out is to set px values for every single padding until it "looks right". However, this comes with
+some downsides.
+
+1. Using px disrespects the user set font size, making it impossible for many vision impaired users to access the page.
+2. It's hard to keep the page cohesive, as padding/margin will likely be inconsistent across similar use causes
+
+As my designer also used pixels, it was a fairly difficult transition into using more reponsive units. We settled on
+using rem, as it was consistent (HTML root element's font size), and also farily easy to convert into px. It also
+conincided well with the 16px grid that the designer was using - making it easy to just think of 1 rem as 1 grid length.
+
+To keep our page cohesive, I took a more mathematical approach. I was inspired by <a href="https://jxnblk.com/blog/mathematical-web-typography/"> this</a> mathematical approach
+to spacing. By using powers of two, it was likely that things would naturally add up and form implicit rows and columns,
+making the entire page look nicer. I thus stuck to using rem units in the power of two, keeping spacing both consistent and responsive.
+
+```js
+  spacing: [0, "0.125rem", "0.25rem", "0.5rem", "1rem", "2rem", "4rem", "8rem"],
 ```
+
+<Caption>Spacing file</Caption>
+
+Though this project hasn't yet finished, I've already learned a lot, and am looking further in improving this site.
