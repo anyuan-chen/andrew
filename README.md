@@ -1,46 +1,19 @@
-# Next.js example
+# Andrew Chen's Portfolio Website
 
-## How to use
+<a href=""><img src="https://img.shields.io/github/languages/code-size/anyuan-chen/andrewchen" /></a>
+<a href=""><img src="https://img.shields.io/tokei/lines/github/anyuan-chen/andrewchen" /></a>
+<a href=""><img src="https://img.shields.io/github/package-json/dependency-version/anyuan-chen/andrewchen/react" /></a>
+<a href=""><img src="https://img.shields.io/github/license/anyuan-chen/andrewchen" /></a>
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+## Getting Started
 
-<!-- #default-branch-switch -->
+To run the website and modify it, first clone the website with git clone.
 
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
-```
+Install dependencies with ```bash npm i ```, then run the development server:
 
-Install it and run:
-
-```sh
-npm install
+```bash
 npm run dev
 ```
 
-or:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/nextjs)
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/nextjs)
-
-## The idea behind the example
-
-The project uses [Next.js](https://github.com/vercel/next.js), which is a framework for server-rendered React apps.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## The link component
-
-Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
-The example folder provides adapters for usage with MUI.
-More information [in the documentation](https://mui.com/guides/routing/#next-js).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
