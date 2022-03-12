@@ -52,7 +52,7 @@ export default function Contact() {
           </Box>
         </Content>
         <Content
-          sx={{ gridRow: "3/4", gridColumn: "1/3", rowGap: matches ? 6 : 5 }}
+          sx={{ gridRow: "3/5", gridColumn: "1/3", rowGap: matches ? 6 : 5 }}
         >
           <Title>Resume</Title>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -71,7 +71,7 @@ export default function Contact() {
           </Box>
         </Content>
         <Content
-          sx={{ gridRow: "3/4", gridColumn: "3/5", rowGap: matches ? 6 : 5 }}
+          sx={{ gridRow: "3/5", gridColumn: "3/5", rowGap: matches ? 6 : 5 }}
         >
           <Title>Availability</Title>
           <Typography variant="h3" sx={{ color: "white" }}>
