@@ -86,9 +86,7 @@ export default function About({ songInfo }) {
           <Typography variant="h3">
             Listening activity was tracked with the Last.fm API.
           </Typography>
-          <Typography variant="h3">
-            Special thanks to Aileen Luo for design guidance.
-          </Typography>
+
           <Typography variant="h5" sx={{ pt: 2 }}>
             Copyright © 2020, Andrew Chen.
           </Typography>
