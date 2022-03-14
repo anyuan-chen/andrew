@@ -13,6 +13,8 @@ const Paragraph = ({ children }) => {
     </Typography>
   );
 };
+
+
 const Heading1 = ({ children }) => {
   return (
     <Typography component="h1" variant="markdownh1">
@@ -20,6 +22,7 @@ const Heading1 = ({ children }) => {
     </Typography>
   );
 };
+
 const Heading2 = ({ children }) => {
   return (
     <Typography component="h2" variant="h2">

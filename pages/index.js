@@ -38,7 +38,7 @@ export default function Index({ workFrontmatter }) {
             display: matches ? "grid" : "flex",
             gridTemplate: "1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr",
             gridGap: matches ? 8 : 4,
-            minHeight: matches ? "100vh" : "100px",
+            minHeight: "100vh",
           }}
         >
           <Content sx={{ rowGap: 5, gridRow: "1/3", gridColumn: "1/5" }}>
