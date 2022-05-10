@@ -1,14 +1,15 @@
 ---
 title: Ascending or Descending?
 date: "May 1, 2022"
-description: algorithmic problems
+description: Reversing a sign quickly using bitwise operations.
 ---
-
+ 
 We establish that an array is by definition sorted in ascending/descending order if it is either null or a single element.
 For all arrays with size > 2, if there exists two elements in the array with the same value, the array cannot be truly ascending/descending (a sequence of 2,2 for example would break both ascending/descending rules)
 Thus, the only thing left to do is to check if the differences of adjacent elements all share the same sign. If the array is in descending order, this will always be negative, and vice versa for ascending arrays.
 The sign of a 32-bit integer is obtained by bit shifting it 31 to the right. This can be explained through the exact bit composition of the integers.
-
+<br />
+<br />
 ```cpp
 bool solve(vector<int>& nums) {
     if (nums.size() < 2) {
@@ -23,6 +24,8 @@ bool solve(vector<int>& nums) {
     return true;
 }
 ```
+<br />
+<br />
 
 The time complexity is $O(N)$ - there is only a single for loop that runs through the nums array.
 The space complexity is $O(1)$ - the only new memory allocated is for rvalues and the sign variable.

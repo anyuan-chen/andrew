@@ -39,6 +39,7 @@ int solve(vector<int>& nums, int k) {
     return total%MOD;
 }
 ```
+
 <br />
 <br />
 The other way in which we can do this is through the usage of a frequency array. For each index of bit, I record the number of zeroes available to be filled. In the second loop, all I do is greedily take the lowest indexes available.
