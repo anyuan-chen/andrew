@@ -19,7 +19,7 @@ let theme = createTheme({
       fontWeight: 400,
       color: "white",
       fontSize: "4rem",
-      wordSpacing: "0.3rem"
+      wordSpacing: "0.3rem",
     },
     h2: {
       fontFamily: "Platform",
@@ -51,7 +51,6 @@ let theme = createTheme({
       letterSpacing: "0.08em",
       color: "#9AA3A7",
     },
-
     nav: {
       fontFamily: "Platform",
       fontStyle: "normal",
